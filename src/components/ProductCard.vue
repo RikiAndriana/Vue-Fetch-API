@@ -1,10 +1,13 @@
 <script setup>
 import { defineProps } from "vue";
+import { useRouter } from "vue-router";
+
+const router = useRouter();
 const { product } = defineProps({ product: Object });
 </script>
 
 <template>
-  <div class="product-card">
+  <div class="product-card" @click="router.push(`/product/${product.id}`)">
     <img :src="product.image" :alt="product.title" class="product-image" />
     <h2 class="product-title">{{ product.title }}</h2>
     <p class="product-description">{{ product.description }}</p>
